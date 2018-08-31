@@ -14,11 +14,7 @@
       <div v-else-if="currentTab==2">
         <wv-header title="个人中心">
         </wv-header>
-        <div>
-          <wv-swipe :height="230" :auto="4000">
-            <wv-swipe-item><img v-lazy="item" class="lazyload-image"></wv-swipe-item>
-          </wv-swipe>
-        </div>
+        <Individual></Individual>
       </div>
     </div>
 
@@ -54,12 +50,15 @@
 
 <script>
   import CarCenter from '@/components/main/CarCenter';
-  import SmallShop from '@/components/main/SmallShop'
+  import SmallShop from '@/components/main/SmallShop';
+  import Individual from '@/components/main/Individual';
+
   export default {
     name: 'MainPage',
     components: {
       'CarCenter': CarCenter,
-      "SmallShop":SmallShop
+      "SmallShop":SmallShop,
+      "Individual":Individual
     },
     methods: {
     },

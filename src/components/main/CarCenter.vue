@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <div class="head">
-      <div class="carcantainer">
+      <div class="carcantainer" @click="navigateToCar">
         <img class="icon" src="../../assets/images/icon_tabbar.png"/>
         <div class="carInfo">
           <span class="carType">长安福特-蒙迪欧</span>
@@ -176,6 +176,11 @@
       },
       clickCancel(index){
 
+      },
+      navigateToCar(){
+        this.$router.push({
+          path:'SelectCar'
+        })
       }
     },
     data() {

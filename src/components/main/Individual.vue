@@ -13,7 +13,7 @@
         </div>
       </wv-swipe>
     </div>
-    <div style="width: 100%;text-align: -webkit-auto;padding: 10px 10px 10px 0px">
+    <div style="width: 100%;text-align: -webkit-auto;padding: 10px 0 10px 0px">
       <h3 style="padding: 10px 10px 10px 10px">我的会员卡</h3>
       <div class="coupon">
         <img src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg" class="lazyload-image" width="25" :height="25">
@@ -70,7 +70,7 @@
   .coupon{
     /*border: #1AAD19 solid 1px ;*/
     width: 100% ;
-    padding: 10px 10px 10px 0px;
+    padding: 10px 0 10px 0px;
     box-sizing: border-box;
   }
 

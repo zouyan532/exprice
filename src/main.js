@@ -10,6 +10,9 @@ import 'we-vue/lib/style.css'
 Vue.config.productionTip = false
 Vue.use(WeVue)
 /* eslint-disable no-new */
+import utils from "@/utils/Utils"
+Vue.prototype.Utils = utils
+
 new Vue({
   el: '#app',
   router,

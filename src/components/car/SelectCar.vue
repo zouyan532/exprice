@@ -4,7 +4,7 @@
       <div>
 
         <div class="hotGrid">
-          <div class="gridItem" v-for="item in hotCarList">
+          <div class="gridItem" v-for="item in hotCarList" @click="clickCar(item)">
             <img style="height: 30px;height: 30px" src="../../assets/images/icon_tabbar.png"/>
             <span>{{item.name}}</span>
           </div>
@@ -14,7 +14,7 @@
           <li v-for="group in singers" class="list-group" :key="group.id" ref="listGroup">
             <h2 class="list-group-title">{{ group.title }}</h2>
             <ul>
-              <li v-for="item in group.items" class="list-group-item" :key="item.id">
+              <li v-for="item in group.items" class="list-group-item" :key="item.id" @click="clickCar(item)">
                 <img v-lazy="item.avatar" class="avatar">
                 <span class="name">{{ item.name }}</span>
               </li>
@@ -833,6 +833,14 @@
 
         this.scroll.on('scroll', (pos) => {
           this.scrollY = pos.y
+        })
+      },
+      clickCar(item){
+        this.$router.replace({
+          name:'NewCar',
+          params:{
+            name:item.name
+          }
         })
       },
       onShortcutStart(e) {

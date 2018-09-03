@@ -1,20 +1,30 @@
 <template>
-  <div class="box" >
+  <div class="box">
     <div class="list-view" ref="listView">
-      <ul>
-        <li v-for="group in singers" class="list-group" :key="group.id" ref="listGroup">
-          <h2 class="list-group-title">{{ group.title }}</h2>
-          <ul>
-            <li v-for="item in group.items" class="list-group-item" :key="item.id">
-              <img v-lazy="item.avatar" class="avatar">
-              <span class="name">{{ item.name }}</span>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <div class="list-shortcut">
+      <div>
+
+        <div class="hotGrid">
+          <div class="gridItem" v-for="item in hotCarList">
+            <img style="height: 30px;height: 30px" src="../../assets/images/icon_tabbar.png"/>
+            <span>{{item.name}}</span>
+          </div>
+
+        </div>
         <ul>
-          <li v-for="(item, index) in shortcutList"
+          <li v-for="group in singers" class="list-group" :key="group.id" ref="listGroup">
+            <h2 class="list-group-title">{{ group.title }}</h2>
+            <ul>
+              <li v-for="item in group.items" class="list-group-item" :key="item.id">
+                <img v-lazy="item.avatar" class="avatar">
+                <span class="name">{{ item.name }}</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="list-shortcut">
+        <!--<ul>-->
+          <span v-for="(item, index) in shortcutList"
               class="item"
               :data-index="index"
               :key="item.id"
@@ -23,8 +33,8 @@
               :class="{'current': currentIndex === index}"
           >
             {{ item }}
-          </li>
-        </ul>
+          </span>
+        <!--</ul>-->
       </div>
     </div>
   </div>
@@ -34,74 +44,71 @@
   import BScroll from 'better-scroll'
 
   export default {
-    data () {
+    data() {
       return {
-        singers: [
+        hotCarList: [
           {
-            title: '热门',
-            items: [
-              {
-                id: 6452,
-                name: '周杰伦',
-                avatar:
-                  'http://p3.music.126.net/o-FjCrUlhyFC96xiVvJZ8g==/109951163111191410.jpg'
-              },
-              {
-                id: 2116,
-                name: '陈奕迅',
-                avatar:
-                  'http://p4.music.126.net/_d1scu7z_1dmd0Zgv9mTLA==/19165587183900212.jpg'
-              },
-              {
-                id: 5781,
-                name: '薛之谦',
-                avatar:
-                  'http://p4.music.126.net/ULlwJ2drOfYv-f6-_7jGGQ==/3250156379592966.jpg'
-              },
-              {
-                id: 126339,
-                name: 'BIGBANG',
-                avatar:
-                  'http://p4.music.126.net/H4Lh45kDfeb1Ke7THhNWjQ==/109951163109244011.jpg'
-              },
-              {
-                id: 3684,
-                name: '林俊杰',
-                avatar:
-                  'http://p3.music.126.net/cnGpIQ6rQCKVrDyVVSpzeg==/3263350518850877.jpg'
-              },
-              {
-                id: 96266,
-                name: 'Maroon 5',
-                avatar:
-                  'http://p3.music.126.net/h-ynyQrpyIvfJeW_DeaqHA==/1385384666932895.jpg'
-              },
-              {
-                id: 9621,
-                name: '王菲',
-                avatar:
-                  'http://p4.music.126.net/GKhjgN1ltQYK3eYf9DdJwg==/18727981557622763.jpg'
-              },
-              {
-                id: 4292,
-                name: '李荣浩',
-                avatar:
-                  'http://p4.music.126.net/tpH_HIHPDjRZep1pJC3q2w==/109951163062593811.jpg'
-              },
-              {
-                id: 7763,
-                name: 'G.E.M.邓紫棋',
-                avatar:
-                  'http://p4.music.126.net/r7uMnwjWpYMuQI_3ZTg56A==/18528969953189760.jpg'
-              },
-              {
-                id: 6460,
-                name: '张学友',
-                avatar:
-                  'http://p3.music.126.net/1JG8Uwzb5XAJXaPUHR6RBw==/3238061747024716.jpg'
-              }
-            ]
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
           },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+          {
+            id: 46487,
+            name: 'Adele',
+            avatar:
+              'http://p4.music.126.net/6iuRSwLHGrjp3RJH86tfuQ==/3261151495434554.jpg'
+          },
+        ],
+        singers: [
           {
             title: 'A',
             items: [
@@ -796,10 +803,11 @@
           }
         ],
         scrollY: 0,
-        currentIndex: 0
+        currentIndex: 0,
+        shortcutList: []
       }
     },
-    created () {
+    created() {
       this.touch = {}
       // 初始化 better-scroll 必须要等 dom 加载完毕
       setTimeout(() => {
@@ -807,8 +815,16 @@
         this._calculateHeight()
       }, 20)
     },
+    mounted(){
+        let list = []
+        list.push("#")
+        this.singers.map((group, index) => {
+          list.push(group.title.substr(0, 1))
+        })
+      this.shortcutList = list
+    },
     methods: {
-      _initSrcoll () {
+      _initSrcoll() {
         // console.log('didi')
         this.scroll = new BScroll(this.$refs.listView, {
           probeType: 3,
@@ -819,18 +835,23 @@
           this.scrollY = pos.y
         })
       },
-      onShortcutStart (e) {
+      onShortcutStart(e) {
         // 获取到绑定的 index
         let index = e.target.getAttribute('data-index')
-        // 使用 better-scroll 的 scrollToElement 方法实现跳转
-        this.scrollToElement(index)
+        if(index==0){
+          this.scroll.scrollTo(0,0)
+          this.currentIndex = 0
+        }else{
+          // 使用 better-scroll 的 scrollToElement 方法实现跳转
+          this.scrollToElement(index-1)
+        }
 
         // 记录一下点击时候的 Y坐标 和 index
         let firstTouch = e.touches[0].pageY
         this.touch.y1 = firstTouch
         this.touch.anchorIndex = index
       },
-      onShortcutMove (e) {
+      onShortcutMove(e) {
         // 再记录一下移动时候的 Y坐标，然后计算出移动了几个索引
         let touchMove = e.touches[0].pageY
         this.touch.y2 = touchMove
@@ -842,7 +863,7 @@
         let index = this.touch.anchorIndex * 1 + delta
         this.scrollToElement(index)
       },
-      scrollToElement (index) {
+      scrollToElement(index) {
         // 处理边界情况
         // 因为 index 通过滑动距离计算出来的
         // 所以向上滑超过索引框框的时候就会 < 0，向上就会超过最大值
@@ -855,7 +876,7 @@
         this.scrollY = -this.listHeight[index]
         this.scroll.scrollToElement(this.$refs.listGroup[index])
       },
-      _calculateHeight () {
+      _calculateHeight() {
         this.listHeight = []
         const list = this.$refs.listGroup
         let height = 0
@@ -868,7 +889,7 @@
       }
     },
     watch: {
-      scrollY (newVal) {
+      scrollY(newVal) {
         // 向下滑动的时候 newVal 是一个负数，所以当 newVal > 0 时，currentIndex 直接为 0
         if (newVal > 0) {
           this.currentIndex = 0
@@ -881,23 +902,16 @@
           let height2 = this.listHeight[i + 1]
 
           if (-newVal >= height1 && -newVal < height2) {
-            this.currentIndex = i
+            this.currentIndex = i+1
             return
           }
         }
 
         // 当超 -newVal > 最后一个高度的时候
         // 因为 this.listHeight 有头尾，所以需要 - 2
-        this.currentIndex = this.listHeight.length - 2
+        this.currentIndex = this.listHeight.length - 2 +1
       }
     },
-    computed: {
-      shortcutList () {
-        return this.singers.map((group) => {
-          return group.title.substr(0, 1)
-        })
-      }
-    }
   }
 </script>
 
@@ -908,12 +922,30 @@
     width: 100%;
     height: 100%;
   }
+
+  .hotGrid {
+    flex-wrap: wrap;
+    display: flex;
+    flex: 1;
+    margin-right: 50px;
+    height: 150px;
+    /*margin-top: 20px;*/
+    flex-direction: row;
+    .gridItem {
+      width: 20%;
+      height: 75px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
   .list-view {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: rgb(223, 223, 223);
     .list-group {
       padding-bottom: 30px;
       .list-group-title {
@@ -942,21 +974,22 @@
       }
     }
     .list-shortcut {
+      display: flex;
+      flex-direction: column;
       position: absolute;
       z-index: 30;
       right: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
       width: 20px;
-      padding: 20px 0;
-      border-radius: 10px;
+      padding: 70px 0;
       text-align: center;
       background: rgba(167, 167, 167, 0.5);
-      font-family:Helvetica;
+      font-family: Helvetica;
       .item {
         padding: 3px;
         line-height: 1;
         color: black;
+        flex:1;
         font-size: 11px;
         &.current {
           color: #C20C0C;

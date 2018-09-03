@@ -18,7 +18,7 @@
         <!--</div>-->
       </div>
     </div>
-    <wv-tabs v-model="active" class="tabs" line-width=100>
+    <wv-tabs v-model="active" class="tabs" line-width="100">
       <wv-tab title="检测报告">
         <div class="report">
           <div class="nextCheck">

@@ -34,15 +34,15 @@ export default new Router({
       name:"Login",
       component: Login
     }
-    //µÇÂ¼Ò³Ãæ
+    //ç™»å½•é¡µé¢
     ,{path:'/Login',name:"Login", component: Login},
-    //»áÔ±¿¨
+    //ä¼šå‘˜å¡
     , {path:'/MembershipCard', name:"MembershipCard", component: MembershipCard}
-    //ÓÅ»İ¾í
+    //ä¼˜æƒ å·
     , {path:'/Coupon', name:"Coupon", component: Coupon}
-    //·ÖÏí„»
+    //åˆ†äº«åŠµ
     , {path:'/ShareStock', name:"ShareStock", component: ShareStock}
-    //»áÔ±¿¨Ê¹ÓÃ¼ÇÂ¼
+    //ä¼šå‘˜å¡ä½¿ç”¨è®°å½•
     , {path:'/UseHistory', name:"UseHistory", component: UseHistory}
   ]
 })

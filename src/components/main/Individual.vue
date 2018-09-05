@@ -15,16 +15,16 @@
     </div>
     <div style="width: 100%;text-align: -webkit-auto;padding: 10px 0 10px 0px">
       <h3 style="padding: 10px 10px 10px 10px">我的会员卡</h3>
-      <div class="coupon">
+      <div class="coupon" @click="membershipCard">
         <img src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg" class="lazyload-image" width="25" :height="25">
         <span class="cardName">会员卡</span><span class="pageCount">0张</span>
       </div>
       <h3 style="padding: 10px 10px 10px 10px">我的优惠劵</h3>
-      <div class="coupon">
+      <div class="coupon" @click="cupon">
         <img src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg" class="lazyload-image" width="25" :height="25" >
         <span class="cardName">优惠劵</span><span class="pageCount">0张</span>
       </div>
-      <div class="coupon">
+      <div class="coupon" @click="shareStock">
         <img src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg" class="lazyload-image" width="25" :height="25" >
         <span class="cardName">分享劵</span><span class="pageCount">0张</span>
       </div>
@@ -46,6 +46,26 @@
       register(){
         this.$router.push({
           path:'Login'
+        })
+      },
+      /*查看会员卡*/
+      membershipCard(){
+        this.$router.push({
+          path:'MembershipCard'
+        })
+      }
+      ,
+      /*查看优惠劵*/
+      cupon(){
+        this.$router.push({
+          path:'Coupon'
+        })
+      }
+      ,
+      /*查看分享劵*/
+      shareStock(){
+        this.$router.push({
+          path:'ShareStock'
         })
       }
     },
@@ -70,7 +90,7 @@
   .coupon{
     /*border: #1AAD19 solid 1px ;*/
     width: 100% ;
-    padding: 10px 0 10px 0px;
+    padding: 10px 10px 10px 0px;
     box-sizing: border-box;
   }
 

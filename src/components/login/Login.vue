@@ -2,10 +2,13 @@
 <template>
   <div id="Login" style="margin-top: 30%">
     <wv-header title="登录">
+      <div class="btn-back" slot="left">
+        <i class="iconfont icon-back" @click="$router.push('/')"><</i>
+      </div>
     </wv-header>
     <wv-group title="">
       <wv-input label="+86 " placeholder="请输入手机号码" type="number" ></wv-input>
-      <wv-button type="default" :mini="true" class="ss">发送验证码</wv-button>
+      <wv-button type="default" :mini="true" id="sendVerificationCode" @click="sendVerificationCode"><span id="sendMsg">发送验证码</span></wv-button>
       <wv-input  placeholder="请输入验证码" type="number" >
       </wv-input>
 
@@ -29,8 +32,24 @@
   export default {
     name: 'Login',
     methods: {
+      sendVerificationCode(){
+        var i = 60;
+        var timer = setInterval(function(){
+          if(i== -1){
+            clearInterval(timer);
+            document.getElementById("sendVerificationCode").disabled=false;
+            document.getElementById("sendMsg").innerHTML = "发送验证码";
+
+          }else{
+            document.getElementById("sendVerificationCode").disabled='disabled';
+            document.getElementById("sendMsg").innerHTML = i+"s重新发送";
+            --i;
+          }
+        },1000);
+
+      },
       oauth(){
-        currentTab==3;
+
       }
     },
     data() {
@@ -58,7 +77,7 @@
     /*border: 1px solid blue;*/
     width: 50%;
   }
-  .ss{
+  #sendVerificationCode{
     width: 30%;
     float: right;
     margin-top: 10px;

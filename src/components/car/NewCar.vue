@@ -142,7 +142,8 @@
   export default {
     data() {
       return {
-        engineNumber:"",    //发动机号
+        options: ['China', 'Japan'],
+        engineNumber: "",    //发动机号
         frameNumber: "",   //车架号
         name: '',
         date: "选择时间",   //新车上路时间
@@ -313,12 +314,12 @@
       flex-direction: column;
       height: 80px;
     }
-    .remindNeedInfo{
+    .remindNeedInfo {
       flex-wrap: wrap;
       display: flex;
       flex: 1;
       flex-direction: row;
-      .infoItem{
+      .infoItem {
         border: 1px solid #eeeeee;
         display: flex;
         flex: 1;

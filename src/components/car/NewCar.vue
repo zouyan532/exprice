@@ -85,6 +85,9 @@
                style="margin-left: 2px;width: 18px;height: 14px;align-self: center"/>
           <input v-model="carNoNumber" type="text"
                  style="border:none;outline:medium;border-bottom: 1px solid #e1e1e1;width: 100px"/>
+          <div class="inputAfter">
+            <span>{{inputAfter}}</span>
+          </div>
         </div>
       </div>
       <div style="height: 80px;width: 1px;background-color: #eeeeee"></div>

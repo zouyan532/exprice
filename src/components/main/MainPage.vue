@@ -20,35 +20,36 @@
 
     <!--底部tab页面切换 -->
     <!--<div class="bottomTabs">-->
-      <wv-tabbar style="position: fixed">
-        <!--is-on 为当前选中项-->
-        <wv-tabbar-item to="/" :is-on="currentTab==0" @click="currentTab=0">
+    <wv-tabbar style="position: fixed">
+      <!--is-on 为当前选中项-->
+      <wv-tabbar-item to="/" :is-on="currentTab==0" @click="clickTab(0)">
       <span slot="icon" style="display: inline-block; position: relative;">
         <img class="weui-tabbar__icon" src="https://cdn.pixabay.com/photo/2015/03/18/09/31/prairie-679014__340.jpg"
              slot="icon">
       </span>
-          店铺首页
-        </wv-tabbar-item>
-        <wv-tabbar-item to="/" :is-on="currentTab==1" @click="currentTab=1">
+        店铺首页
+      </wv-tabbar-item>
+      <wv-tabbar-item to="/" :is-on="currentTab==1" @click="clickTab(1)">
       <span slot="icon" style="display: inline-block; position: relative;">
         <img class="weui-tabbar__icon" src="https://cdn.pixabay.com/photo/2015/03/18/09/29/the-scenery-679011__340.jpg"
              slot="icon">
       </span>
-          车中心
-        </wv-tabbar-item>
-        <wv-tabbar-item to="/" :is-on="currentTab==2" @click="currentTab=2">
+        车中心
+      </wv-tabbar-item>
+      <wv-tabbar-item to="/" :is-on="currentTab==2" @click="clickTab(2)">
       <span slot="icon" style="display: inline-block; position: relative;">
         <img class="weui-tabbar__icon" src="https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg"
              slot="icon">
       </span>
-          个人中心
-        </wv-tabbar-item>
-      </wv-tabbar>
+        个人中心
+      </wv-tabbar-item>
+    </wv-tabbar>
     <!--</div>-->
   </div>
 </template>
 
 <script>
+  import {mapState,mapMutations} from 'vuex'
   import CarCenter from '@/components/main/CarCenter';
   import SmallShop from '@/components/main/SmallShop';
   import Individual from '@/components/main/Individual';
@@ -57,19 +58,25 @@
     name: 'MainPage',
     components: {
       'CarCenter': CarCenter,
-      "SmallShop":SmallShop,
-      "Individual":Individual
+      "SmallShop": SmallShop,
+      "Individual": Individual
     },
     methods: {
+      ...mapMutations([
+        "clickTab"
+      ])
     },
     data() {
-      return {
-        item: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg',
-        item1: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg',
-        item2: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg',
-        item3: 'https://cdn.pixabay.com/photo/2015/03/28/16/40/lake-696098__340.jpg',
-        currentTab:0
-      }
+      return {}
+    },
+    computed: {
+      localComputed() {
+      },
+      ...mapState({
+        currentTab:state=>state.mainPage.currentTab
+      })
+    },
+    created() {
     }
   }
 </script>
@@ -147,10 +154,10 @@
       }
     }
     /*.bottomTabs {*/
-      /*display: flex;*/
-      /*position: fixed;*/
-      /*bottom: 0;*/
-      /*width: 100%;*/
+    /*display: flex;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
     /*}*/
   }
 </style>

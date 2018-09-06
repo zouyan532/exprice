@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import WeVue from 'we-vue'
 import 'we-vue/lib/style.css'
-
+import store from './store'
 import objectAssign from 'object-assign'
 import Vuex from 'vuex'
 import vuexI18n from 'vuex-i18n'
@@ -88,6 +88,7 @@ Vue.use(WechatPlugin)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

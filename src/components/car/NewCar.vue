@@ -8,6 +8,10 @@
       month-format="{value} 月"
       date-format="{value} 日"
     />
+    <div v-show="isShowPreImg" @click="isShowPreImg=false" style="display:flex;flex-direction:column;justify-content:center;align-items:center;position: absolute;left: 0;right: 0;top:0;bottom: 0;background: rgba(0, 0, 0, .6);z-index: 1000">
+      <img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="width:100%;height: 300px">
+    </div>
+
     <wv-popup
       :visible.sync="isShowSelectProniceShortPop"
       :close-on-click-mask="true"
@@ -85,9 +89,6 @@
                style="margin-left: 2px;width: 18px;height: 14px;align-self: center"/>
           <input v-model="carNoNumber" type="text"
                  style="border:none;outline:medium;border-bottom: 1px solid #e1e1e1;width: 100px"/>
-          <div class="inputAfter">
-            <span>{{inputAfter}}</span>
-          </div>
         </div>
       </div>
       <div style="height: 80px;width: 1px;background-color: #eeeeee"></div>
@@ -102,7 +103,7 @@
         style="height:50px;display: flex;flex-direction: row;justify-content: space-between;align-items: center;margin-left: 20px;margin-right: 20px">
         <span>车架号</span>
         <img src="../../assets/images/icon_tabbar.png"
-             style="margin-left: 2px;width: 18px;height: 14px"/>
+             style="margin-left: 2px;width: 18px;height: 14px" @click="isShowPreImg=true"/>
       </div>
       <input v-model="frameNumber" type="text"
              style="margin-left:20px;border:none;outline:medium;border-bottom: 1px solid #e1e1e1;width: 300px"/>
@@ -112,6 +113,7 @@
         style="height:50px;display: flex;flex-direction: row;justify-content: space-between;align-items: center;margin-left: 20px;margin-right: 20px">
         <span>发动机号</span>
         <img src="../../assets/images/icon_tabbar.png"
+             @click="isShowPreImg=true"
              style="margin-left: 2px;width: 18px;height: 14px"/>
       </div>
       <input v-model="engineNumber" type="text"
@@ -141,8 +143,14 @@
 </template>
 <script>
   import pacList from '../../assets/pca-code'
-
+  import { XDialog,TransferDomDirective as TransferDom } from 'vux'
   export default {
+    directives: {
+      TransferDom
+    },
+    components:{
+      XDialog
+    },
     data() {
       return {
         options: ['China', 'Japan'],
@@ -160,6 +168,7 @@
         isShowSelectProvicePop: false, //是否显示选择省份的弹窗
         currentSelectCityList: "",      //当前选择的省份的城市
         isShowSelectCityPop: false,     //是否显示城市选择弹窗
+        isShowPreImg:false,              //是否显示车架号图片弹窗
       }
     },
     mounted() {
@@ -328,6 +337,15 @@
         flex: 1;
         height: 60px;
         flex-direction: column;
+      }
+    }
+    .dialog-demo {
+      flex-direction: column;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .img-box {
+        height: 350px;
       }
     }
   }

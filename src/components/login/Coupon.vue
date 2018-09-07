@@ -1,6 +1,6 @@
 <!--我的优惠劵-->
 <template>
-  <div id="Coupon">
+  <div id="Coupon" style=" background-color:#eeeeee;position: absolute;top:0;right:0;left:0;bottom: 0">
     <wv-header title="我的优惠劵">
       <div class="btn-back" slot="left">
         <i class="iconfont icon-back" @click="$router.push('/')"><</i>
@@ -104,8 +104,6 @@
     margin: 0;
     list-style: none;
   }
-  html{
-    background-color:#eeeeee;
-  }
+
 
 </style>

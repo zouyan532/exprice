@@ -7,15 +7,15 @@
       </div>
     </wv-header>
     <wv-group title="">
-      <wv-input label="+86 " placeholder="请输入手机号码" type="number" ></wv-input>
+      <wv-input label="+86 " placeholder="请输入手机号码" type="number" v-model:value="phoneNumber" ></wv-input>
       <wv-button type="default" :mini="true" id="sendVerificationCode" @click="sendVerificationCode" :disabled="sendDisabled"  :style="sendMsgStyle"><span>{{sendMsg}}</span></wv-button>
-      <wv-input  placeholder="请输入验证码" type="number" >
+      <wv-input  placeholder="请输入验证码" type="number" v-model:value="vCode">
       </wv-input>
 
-      <wv-input  placeholder="请输入您的姓名" ></wv-input>
+      <wv-input  placeholder="请输入您的姓名" v-model:value="name" ></wv-input>
     </wv-group>
 
-    <wv-button type="default" :plain="true" class="loginBtn">登录</wv-button>
+    <wv-button type="default" :plain="true" class="loginBtn" @click="login">登录</wv-button>
 
     <div style="margin-top:10%" @click="oauth">
       <span >一键登录</span>
@@ -29,9 +29,16 @@
 </template>
 
 <script>
+  import {mapMutations,mapState,mapActions} from "vuex"
   export default {
     name: 'Login',
     methods: {
+      ...mapActions([
+        "login"
+      ]),
+      ...mapMutations([
+        "updateUserInfo",
+      ]),
       sendVerificationCode(){
         var i = 15;
         let that = this;
@@ -61,6 +68,39 @@
         sendMsg:"发送验证码",
         sendMsgStyle:"background-color: green;color:black "
       }
+    },
+    computed:{
+      ...mapState({
+        // phoneNumber:state=>state.login.phoneNumber,
+        // vCode:state=>state.login.vCode,
+        // name:state=>state.login.name
+        userInfo:state=>state.userInfo
+      }),
+      phoneNumber:{
+        get(){
+          return this.userInfo?this.userInfo.phoneNumber:""
+        },
+        set(value){
+          this.updateUserInfo({phoneNumber:value})
+        }
+      },
+      vCode:{
+        get(){
+          return this.userInfo?this.userInfo.vCode:""
+        },
+        set(value){
+          this.updateUserInfo({vCode:value})
+        }
+      },
+      name:{
+        get(){
+          return this.userInfo?this.userInfo.name:""
+        },
+        set(value){
+          this.updateUserInfo({name:value})
+        }
+      },
+
     }
   }
 </script>

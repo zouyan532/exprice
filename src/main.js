@@ -21,8 +21,9 @@ require('es6-promise').polyfill()
 Vue.use(ElementUI);
 /* eslint-disable no-new */
 import utils from "@/utils/Utils"
+import http from "@/utils/http"
 Vue.prototype.Utils = utils
-
+Vue.prototype.http = http
 /** i18n **/
 // let store = new Vuex.Store({
 //   modules: {

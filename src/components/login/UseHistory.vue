@@ -1,4 +1,4 @@
-<!--我的优惠劵-->
+<!--使用历史-->
 <template>
   <div id="Coupon">
     <wv-header title="使用记录">
@@ -7,32 +7,36 @@
       </div>
     </wv-header>
     <div>
-
               <div>
                 <ul class="rollContent">
-                  <li class='coupon-li' v-for="item in untapped">
+                  <li class='coupon-li' v-for="item in useData" style="height: 70px">
                     <div>
-                      <h1 class="leftIcon">{{item.a}}</h1>
-                      <div class="rightBox">
-                        <div class="firstS">
-                          <div style="float: left">
-                            <h2>{{item.b}}</h2>
-                            <p>适用项目:{{item.c}}</p>
+                      <div style="width:auto;right: 0;font-size: 12px;text-align: left;margin-left: 20px;">
+                        <div style="height: 50px; line-height: 25px;position: relative; ">
+                          <div style="float: left ;margin-top: 12px">
+                            <h2>{{item.a}}</h2>
+                            <div v-if="item.b!=null && item.b !=''">
+                              <p>{{item.b}}<span style="margin-left: 30px;">{{item.c}}</span></p>
+                            </div>
+                            <div v-if="item.b==null || item.b ==''">
+                              <p>{{item.c}}</p>
+                            </div>
                           </div>
                           <div class="buttonSection"  style="float: right">
-                            <span class="btnUse">立即使用</span>
+                            <p v-if="item.d>0" style="font-size: 20px;color: #1AAD19">{{item.d}}{{item.e}}</p>
+                            <p v-if="item.d<=0" style="font-size: 20px;color: red">{{item.d}}{{item.e}}</p>
                           </div>
                           <div style="clear: both"></div>
                         </div>
                         <div class="secondS">
-                          <p>有效期:{{item.d}}</p>
+
                         </div>
                       </div>
-                  </div>
+                    </div>
                   </li>
                 </ul>
               </div>
-        
+
       </div>
   </div>
 
@@ -46,22 +50,15 @@
     },
     data() {
       return {
-        revoke:[
+        useData:[
           {
-            a:"￥200",b:"抵用券",c:"空气滤清",d:"2018/01/01-2020/01/01"
+            a:"普通洗车",b:"春节套餐",c:"2018.09.09",d:"-1",e:"次"
           },
           {
-            a:"￥200",b:"减免劵",c:"空气滤清",d:"2018/01/01-2020/01/01"
-          }],
-        untapped:[
-          {
-            a:"免费",b:"免费券",c:"空气滤清",d:"2018/01/01-2020/01/01"
+            a:"充值",b:"",c:"2018.10.10",d:"+1000",e:"元"
           },
           {
-            a:"￥200",b:"抵用券",c:"空气滤清",d:"2018/01/01-2020/01/01"
-          },
-          {
-            a:"￥200",b:"减免劵",c:"空气滤清",d:"2018/01/01-2020/01/01"
+            a:"消费",b:"洗车、保养",c:"2018.09.10",d:"-2000",e:"元"
           }
         ]
       }
@@ -75,8 +72,6 @@
     margin: 0;
     list-style: none;
   }
-  html{
-    background-color:#eeeeee;
-  }
+
 
 </style>

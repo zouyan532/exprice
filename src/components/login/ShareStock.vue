@@ -1,6 +1,6 @@
 <!--我的分享劵-->
 <template>
-  <div id="ShareStock" >
+  <div id="ShareStock" class="grayGround">
     <wv-header title="我的分享劵">
       <div class="btn-back" slot="left">
         <i class="iconfont icon-back" @click="$router.push('/')"><</i>
@@ -80,8 +80,6 @@
     list-style: none;
   }
 
-html{
-  background-color:#eeeeee;
-}
+
 
 </style>

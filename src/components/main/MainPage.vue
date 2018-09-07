@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;flex-direction: column;height: 100%">
+  <div style="display: flex;flex-direction: column;height: 100% ;margin-top: -10px">
     <div id="tabs">
       <div v-if="currentTab==0">
         <wv-header title="微店首页">

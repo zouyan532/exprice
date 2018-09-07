@@ -8,6 +8,7 @@ import MembershipCard from '@/components/login/Membership'
 import Coupon from '@/components/login/Coupon'
 import ShareStock from '@/components/login/ShareStock'
 import UseHistory from '@/components/login/UseHistory'
+import CouponDetail from '@/components/login/CouponDetail'
 Vue.use(Router)
 
 export default new Router({
@@ -44,5 +45,7 @@ export default new Router({
     , {path:'/ShareStock', name:"ShareStock", component: ShareStock}
     //会员卡使用记录
     , {path:'/UseHistory', name:"UseHistory", component: UseHistory}
+    //优惠卷详情
+    , {path:'/CouponDetail', name:"CouponDetail", component: CouponDetail}
   ]
 })

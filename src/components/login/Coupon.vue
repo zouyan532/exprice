@@ -1,6 +1,6 @@
 <!--我的优惠劵-->
 <template>
-  <div id="Coupon" style=" background-color:#eeeeee;position: absolute;top:0;right:0;left:0;bottom: 0">
+  <div id="Coupon" class="grayGround">
     <wv-header title="我的优惠劵">
       <div class="btn-back" slot="left">
         <i class="iconfont icon-back" @click="$router.push('/')"><</i>
@@ -13,16 +13,16 @@
               <div>
                 <ul class="rollContent">
                   <li class='coupon-li' v-for="item in untapped">
-                    <div>
-                      <h1 class="leftIcon">{{item.a}}</h1>
+                    <div >
+                      <h1 class="leftIcon" @click="couponDetail">{{item.a}}</h1>
                       <div class="rightBox">
                         <div class="firstS">
-                          <div style="float: left">
+                          <div style="float: left" @click="couponDetail">
                             <h2>{{item.b}}</h2>
                             <p>适用项目:{{item.c}}</p>
                           </div>
                           <div class="buttonSection"  style="float: right">
-                            <span class="btnUse">立即使用</span>
+                            <span class="btnUse" @click="useCoupon">立即使用</span>
                           </div>
                           <div style="clear: both"></div>
                         </div>
@@ -71,6 +71,15 @@
   export default {
     name: 'Coupon',
     methods: {
+      couponDetail(){
+        this.$router.push({
+          path:'CouponDetail'
+        })
+      },
+      useCoupon(){
+        alert("0000000000");
+      }
+
 
     },
     data() {

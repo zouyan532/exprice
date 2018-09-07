@@ -1,6 +1,6 @@
 <!--个人中心页面-->
 <template>
-  <div id="Individual">
+  <div id="Individual" style="margin-top: -10px;">
     <div >
       <wv-swipe :height="175" :auto="4000" style="background-color: #1AAD19">
         <div id="register" @click="register">
@@ -82,9 +82,6 @@
 
   .pageCount{
     float: right
-  }
-  .wv-header[data-v-4dfc0ef2]{
-    height: 60px;
   }
 
   .coupon{

@@ -8,7 +8,7 @@
     </wv-header>
     <wv-group title="">
       <wv-input label="+86 " placeholder="请输入手机号码" type="number" ></wv-input>
-      <wv-button type="default" :mini="true" id="sendVerificationCode" @click="sendVerificationCode"><span id="sendMsg">发送验证码</span></wv-button>
+      <wv-button type="default" :mini="true" id="sendVerificationCode" @click="sendVerificationCode" :disabled="sendDisabled"  :style="sendMsgStyle"><span>{{sendMsg}}</span></wv-button>
       <wv-input  placeholder="请输入验证码" type="number" >
       </wv-input>
 
@@ -33,16 +33,19 @@
     name: 'Login',
     methods: {
       sendVerificationCode(){
-        var i = 60;
+        var i = 15;
+        let that = this;
         var timer = setInterval(function(){
           if(i== -1){
             clearInterval(timer);
-            document.getElementById("sendVerificationCode").disabled=false;
-            document.getElementById("sendMsg").innerHTML = "发送验证码";
+            that.sendDisabled=false;
+            that.sendMsg = "发送验证码";
+            that.sendMsgStyle="background-color: green;"
 
           }else{
-            document.getElementById("sendVerificationCode").disabled='disabled';
-            document.getElementById("sendMsg").innerHTML = i+"s重新发送";
+            that.sendDisabled=true;
+            that.sendMsg = i+"s重新发送";
+            that.sendMsgStyle="background-color:#9c9c9c;color:#fff ;"
             --i;
           }
         },1000);
@@ -54,7 +57,9 @@
     },
     data() {
       return {
-
+        sendDisabled:false,
+        sendMsg:"发送验证码",
+        sendMsgStyle:"background-color: green;color:black "
       }
     }
   }
@@ -81,7 +86,8 @@
     width: 30%;
     float: right;
     margin-top: 10px;
-    background-color: yellow;
+
+
     border-radius: 30px;
   }
 

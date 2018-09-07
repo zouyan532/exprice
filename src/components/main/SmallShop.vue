@@ -40,7 +40,8 @@
               </div>
             </wv-tab>
             <wv-tab  :key="2" title="技术展示">
-              内容 {{ 2 }}
+
+              <span style="float: left">|技师介绍</span>
             </wv-tab>
             <wv-tab  :key="3" title="用户点评">
               内容 {{ 3 }}
